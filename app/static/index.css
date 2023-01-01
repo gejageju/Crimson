@@ -1,0 +1,62 @@
+html, body {
+    min-height: 100%;
+    min-width: 100%;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    font-family:
+		system-ui,
+		-apple-system, /* Firefox supports this but not yet `system-ui` */
+		'Segoe UI',
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif,
+		'Apple Color Emoji',
+		'Segoe UI Emoji';
+}
+
+.row{
+    min-height: 100vh;
+}
+#reward-box{
+    background-color: white;
+    padding: 10px;
+    margin: 50px;
+    border-radius:25px;
+    justify-content: center;
+    text-align:center;
+    font-weight: bold;
+    font-size: 25px;
+    height : 130px;
+    border-width: 2px;
+    border-color: rgb(245, 208, 148);
+    border-style: solid;
+    
+}
+#gift-box{
+    background-color: white;
+    padding: 3px;
+    margin: 50px;
+    border-radius:25px;
+    justify-content: center;
+    text-align:center;
+    
+    font-size: 25px;
+    font-weight: bolder;
+  
+    height : 130px;
+    border-width: 2px;
+    border-color: rgb(245, 208, 148);
+    border-style: solid;
+    
+
+    
+}
+
+#foodcard{
+    background-color: rgb(255, 255, 255);
+    height: 200px;
+    border-radius: 25px;
+    
+}

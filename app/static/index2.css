@@ -1,0 +1,157 @@
+html, body {
+    min-height: 100%;
+    min-width: 100%;
+    background-color:rgb(252, 229, 189);
+    margin: 0;
+    padding-top: 30px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.row{
+    min-height: 100vh;
+}
+#reward-box{
+    background-color: white;
+    padding: 10px;
+    margin: 50px;
+    border-radius:25px;
+    justify-content: center;
+    text-align:center;
+    font-weight: bold;
+    font-size: 25px;
+    height : 90px;
+    width: 200px;
+    border-width: 2px;
+    border-color: rgb(245, 208, 148);
+    border-style: solid;
+    
+    
+}
+#gift-box{
+    background-color: white;
+    padding: 3px;
+    margin: 50px;
+    border-radius:25px;
+    justify-content: center;
+    text-align:center;
+    
+    font-size: 25px;
+    font-weight: bolder;
+    overflow: scroll;
+    height : 330px;
+    border-width: 2px;
+    border-color: rgb(245, 208, 148);
+    border-style: solid;
+    
+
+    
+}
+#wishlist{
+    background-color: white;
+    padding: 3px;
+    margin: 50px;
+    border-radius:25px;
+    justify-content: center;
+    text-align:center;
+    
+    font-size: 25px;
+    font-weight: bolder;
+   
+    height : 430px;
+    border-width: 2px;
+    border-color: rgb(245, 208, 148);
+    border-style: solid;
+}
+
+#foodcard{
+    background-color: rgb(249, 249, 167);
+    
+    border-radius: 25px;
+    margin-top:0px;
+    margin-bottom: 3px;
+    border-width: 3px;
+    border-style:solid;
+    border-color: rgb(245, 208, 148);
+    display: flex;
+  align-items: center;
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   font-weight: bold;
+   font-size: x-large;
+   margin-right: 0px;
+   margin-left: 50px;
+   width: 350px;
+    
+}
+#mid{
+    background-color: rgb(252, 229, 189);
+}
+#left-most{
+    background-color: rgb(252, 229, 189);
+}
+#right-most{
+    background-color: rgb(252, 229, 189);
+}
+#cardel{
+    margin-left: auto;
+    margin-right: auto;
+    width:200px;
+}
+
+#wishlist{
+    overflow:scroll;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    width: 270px;
+    margin: 0 auto;
+    min-height: 50px;
+  }
+  .btn {
+    flex: 1 1 auto;
+    margin: 10px;
+    padding: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: rgb(252, 229, 189);
+   /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+   }
+  
+  /* Demo Stuff End -> */
+  
+  /* <- Magic Stuff Start */
+  
+  .btn:hover {
+    background-position: right center; /* change the direction of the change here */
+  }
+  
+  .btn-1 {
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+  }
+
+  #product{
+    display: flex;
+    
+    align-items: center;
+   
+  }
+
+  .geju{
+    padding:30px;
+    background-color: rgb(249, 249, 167);
+    border-radius: 25px;
+    margin:7px;
+    
+  }
+  .geju:hover{
+    background-color: rgb(255, 255, 215);
+  }
+
+  

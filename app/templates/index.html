@@ -1,0 +1,170 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="{% static 'index2.css' %}">
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="{% static 'confetti/confetti-main/confetti.js'%}"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script>
+    const start = () => {
+        console.log("pred");
+        setTimeout(function() {
+            confetti.start()
+        }, 1000);
+        
+        setTimeout(function() {
+            confetti.stop()
+        }, 5000);// 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+    };
+
+    //  for stopping the confetti 
+
+    const stop = () => {
+        setTimeout(function() {
+            confetti.stop()
+        }, 5000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+    };
+// after this here we are calling both the function so it works
+    
+</script>
+</head>
+<body >
+    
+    <div class="container-fluid vh-100"  style="background-color:white" >
+        <div class="row " style="height: 100vh; " >
+            <div id="left-most" name="left-most" class="col-md-3"  style=" height: 100vh">
+                <div class="row" style="height:50%;">
+                    
+                    <div id="reward-box" >
+                        
+                        
+                        <div><img  style="height:75px; width:auto;"src="{% static 'coin3.png' %}"><p style="display:inline">{{amount}}</p>
+                        </div>
+                    </div>
+                    <div id="gift-box">
+                        <div >⭐Rewards claimed⭐ </div>
+                        {% for item in claimed%}
+                        <div id="product">
+                            <img src={{item.url}} style="height:12.5vh; width:auto;">
+                            <div>
+                                <div style="margin-left:7px; font-size: 10px;">{{item.title}}
+                                </div>
+                                
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <hr>
+                    </div>
+                    <div style="margin-left:60px;  "><img style="height:100px;width:auto" src="{% static 'logo10.png' %}">
+                    </div>
+
+                </div>
+                
+
+            </div>
+          
+            <div id="mid" name="mid" class="col-md-6"  style="height :100vh;display: flex;
+            align-items: center;">
+                <img  id="food" style="width:330px; margin-left:0; margin-right:auto; margin-bottom: 0px; height: auto;" src="{% static 'girl3.png' %}">
+                <div id="foods" style=" margin-left:0px;">
+                    <div id="foodcard" > 
+                        <form method="POST" action="addentry">
+                            {% csrf_token %}
+                        <input style=" margin-left:5px; display:inline;  font-weight:lighter; width: 130px; background-color:rgb(255, 255, 201);height:30px;" type="text" name="item" id="item" placeholder="Add item" >
+                        <input style=" margin-left:5px; display:inline;  font-weight:lighter; width: 130px; background-color:rgb(255, 255, 201);height:30px;" type="text" name="amount" id="amount" placeholder="Add amnt.">
+                        <button type="submit" style="border-radius:70px; background-color:rgb(245, 208, 148); border-color:white;color:rgb(249, 249, 167);">+                        </button>
+                        </form>
+                    </div>
+                    {% for entry in entries %}
+                    <div id="foodcard"> 
+                        <div id="cardel" style="margin-left:15px;"><div>{{entry.name}}</div> <img  style="height:28px; margin-bottom:5px; margin-left:25px;width:auto;"src="{% static 'coin5.png' %}">{{entry.amount}}</div>
+                        <div id="cardel" style="font-weight:lighter;margin-left:auto; margin:right:5px; font-size: 12px;">{{entry.date}} {{entry.time}}</div>
+                    </div>
+                    {% endfor %}
+                    
+                    
+                 </div>
+            </div>
+            <div id="right-most" name="right-most" class="col-md-3"  style="height: 100vh; ">
+                <div id="wishlist">
+                    <div>♡ Wishlist ♡</div>
+                    <br>
+                    <div>
+                        <form method="POST" action="/addlink" style="display:inline;">
+                            {% csrf_token %}
+                            <input  placeholder="Add link" style=" font-size:15px; font-weight:lighter; width :125px; height:30px; margin-left:0px;"type=text id="addtolist" name="addtolist">
+                            <button style="
+                            float: right;
+                            height:30px;
+                            width: 30px;
+                            margin-right: 50px;
+                            margin-top:5px;
+                            " type="submit"><p style="margin-right: 0px; margin-bottom:5px;">+<p></button>
+                        </form>
+                        
+                    </div>
+                    {% for item in wishlist %}
+                    <div id="product">
+                        <img src={{item.url}} style="height:70px; width:auto;">
+                        <div>
+                            <div style="margin-left:7px; font-size: 10px;">{{item.title}}
+                            </div>
+                            
+                        </div>
+                    </div>
+                    {% if not item.hide%}
+                    <div style="font-size:15px; margin-left:0px;">{{item.togo}}<img  style="height:25px; width:auto;"src="{% static 'coin3.png' %}"> more to go</div>
+                    {% endif %}
+                    <hr>
+                    {% endfor %}
+                </div>
+                <div class="button-container">
+                    <button  style="border-style:none; font-size:25px; font-weight:bolder;" type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-1">Claim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="POST" action="claim">
+                {% csrf_token %}
+                <select name="prod" id="prod" multiple>
+                    {% for item in wishlist %}
+                    {% if item.hide%}
+                    <option class="geju" style="width:540px; overflow:hidden" value={{item.id}}>{{item.title}}</option>
+                    {% endif %}
+                    {% endfor %}
+                </select>
+                <div class="modal-footer">
+              
+                    <button type="submit"  onclick="start()" class="btn btn-1" style="font-size:15px;">Claim</button>
+                  </div>
+              </form>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+
+      Image by <a href="https://www.freepik.com/free-vector/self-care-health-concept_7775310.htm#query=health%20and%20wellness&position=1&from_view=keyword">Freepik</a> 
+</body>
+</html>
